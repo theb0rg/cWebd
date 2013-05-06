@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BC6A8A7B-EB4E-4EC7-B0FA-45C82347D7F7}</ProjectGuid>
     <Compiler>
-      <Compiler ctype="GccCompiler" xmlns="" />
+      <Compiler ctype="GccCompiler" />
     </Compiler>
     <Language>C</Language>
     <Target>Bin</Target>
@@ -19,6 +19,7 @@
     <CompileTarget>Bin</CompileTarget>
     <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
     <SourceDirectory>.</SourceDirectory>
+    <ExtraLinkerArguments>-lwsock32</ExtraLinkerArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>
@@ -27,5 +28,22 @@
     <OptimizationLevel>3</OptimizationLevel>
     <DefineSymbols>MONODEVELOP</DefineSymbols>
     <SourceDirectory>.</SourceDirectory>
+    <ExtraLinkerArguments>-lwsock32</ExtraLinkerArguments>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="main.c" />
+    <Compile Include="libs\genlib.c" />
+    <Compile Include="libs\random.c" />
+    <Compile Include="libs\simpio.c" />
+    <Compile Include="libs\strlib.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libs\genlib.h" />
+    <None Include="libs\random.h" />
+    <None Include="libs\simpio.h" />
+    <None Include="libs\strlib.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="libs\" />
+  </ItemGroup>
 </Project>
